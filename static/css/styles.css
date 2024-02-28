@@ -1,0 +1,13 @@
+body{
+background-color: #FFFFE0;
+}
+.rectangle {
+/* Прямоугольник 1 */
+position: absolute;
+width: 143px;
+height: 117px;
+left: 371px;
+right: -54px;
+top: -24px;
+bottom: 312px;
+}

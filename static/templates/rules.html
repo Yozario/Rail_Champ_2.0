@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Правила</title>
+</head>
+<body>
+<h1>Здесь правила, брат</h1>
+<form id="redirectForm">
+    {% csrf_token %}
+    <button type="button" onclick="redirectToRulesPage()">Вернуться обратно</button>
+</form>
+
+<script>
+function redirectToRulesPage() {
+    window.location.href = "{% url '' %}";
+}
+</script>
+</form>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rail Champ 🚅</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<h1>Добро пожаловать в "Rail Champ"!</h1>
+
+<img src="{% static 'img/train.jpg' %}" alt="я такой РЖД-шный блин" width="400px">
+<br>
+
+<b style="color: red"> Приветствуем вас в увлекательном мире
+    игры Rail Champ, где вы станете мастером
+    транспортных маршрутов и построите
+    эффективную транспортную систему! </b>
+
+<p>
+В этой игре вам предстоит прокладывать
+маршруты, управлять расписаниями,
+оптимизировать пассажиропотоки и
+решать различные транспортные задачи.
+Ваша цель - создать эффективную и
+удобную транспортную инфраструктуру
+для удовлетворения потребностей
+городского населения.
+</p>
+
+<p>
+Готовы ли вы взять на себя вызов
+и стать гуру транспортных систем?
+Давайте начнем игру и проверим ваше
+мастерство в области транспортного
+планирования!
+</p>
+
+
+<table>
+  <caption><h2> Железные дороги,
+      присутствующие в игре </h2></caption>
+  <tr>
+    <th>Номер дороги &nbsp; &nbsp;</th>
+    <th>Название &nbsp; &nbsp;</th>
+    <th>Год открытия &nbsp; &nbsp;</th>
+    <th>Длина (км) </th>
+
+  </tr>
+  <tr>
+    <td align="center">1</td>
+    <td align="center">Восточно-Сибирская</td>
+    <td align="center">1934</td>
+    <td align="center">3876</td>
+  </tr>
+
+  <tr>
+    <td align="center">2</td>
+    <td align="center">Горьковская</td>
+    <td align="center">1961</td>
+    <td align="center">5296</td>
+  </tr>
+
+    <tr>
+    <td align="center">3</td>
+    <td align="center">Дальневосточная</td>
+    <td align="center">1897</td>
+    <td align="center">6826</td>
+  </tr>
+
+  <tr>
+    <td align="center">4</td>
+    <td align="center">Забайкальская</td>
+    <td align="center">1900</td>
+    <td align="center">3336</td>
+  </tr>
+
+  <tr>
+    <td align="center">5</td>
+    <td align="center">Западно-Сибирская</td>
+    <td align="center">1896</td>
+    <td align="center">6000</td>
+  </tr>
+
+  <tr>
+    <td align="center">6</td>
+    <td align="center">Калининградская</td>
+    <td align="center">1992</td>
+    <td align="center">667</td>
+  </tr>
+
+  <tr>
+    <td align="center">7</td>
+    <td align="center">Красноярская</td>
+    <td align="center">1936</td>
+    <td align="center">3157</td>
+  </tr>
+
+  <tr>
+    <td align="center">8</td>
+    <td align="center">Куйбышевская</td>
+    <td align="center">1936</td>
+    <td align="center">11502</td>
+  </tr>
+
+  <tr>
+    <td align="center">9</td>
+    <td align="center">Московская</td>
+    <td align="center">1959</td>
+    <td align="center">8984</td>
+  </tr>
+
+  <tr>
+    <td align="center">10</td>
+    <td align="center">Октябрьская</td>
+    <td align="center">1923</td>
+    <td align="center">10378</td>
+  </tr>
+
+  <tr>
+    <td align="center">11</td>
+    <td align="center">Приволжская</td>
+    <td align="center">1953</td>
+    <td align="center">4260</td>
+  </tr>
+
+  <tr>
+    <td align="center">12</td>
+    <td align="center">Свердловская</td>
+    <td align="center">1878</td>
+    <td align="center">7152</td>
+  </tr>
+
+  <tr>
+    <td align="center">13</td>
+    <td align="center">Северная</td>
+    <td align="center">1953</td>
+    <td align="center">5956</td>
+  </tr>
+
+  <tr>
+    <td align="center">14</td>
+    <td align="center">Северо-Кавказская</td>
+    <td align="center">1922</td>
+    <td align="center">6311</td>
+  </tr>
+
+  <tr>
+    <td align="center">15</td>
+    <td align="center">Юго-Восточная</td>
+    <td align="center">1893</td>
+    <td align="center">4189</td>
+  </tr>
+
+  <tr>
+    <td align="center">16</td>
+    <td align="center">Южно-Уральская</td>
+    <td align="center">1934</td>
+    <td align="center">7567</td>
+  </tr>
+</table>
+<br>
+  {% for i in data%}
+  Название дороги: {{i.key}},
+  Состояние на 1 ходу: {{i.first_move}}
+<br>
+  {%endfor %}
+
+<br>
+<form id="redirectForm">
+    {% csrf_token %}
+    <button type="button" onclick="click_rules()">Почитай правила</button>
+    <button type="button" onclick="click_maps()">Посмотри карту {{r}} железной дороги</button>
+</form>
+
+<script>
+function click_rules() {
+    window.location.href = "{% url 'rules' %}";
+}
+ function click_maps() {
+    window.location.href = "{% url 'maps' %}";
+}
+</script>
+<style>
+.rectangle {
+  height: 50px;
+  width: 100px;
+  background-color: #555;
+}
+</style>
+</body>
+</html>
